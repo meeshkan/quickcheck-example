@@ -9,13 +9,11 @@ prop_ReverseReverseId json =
 instance Arbitrary JSON where
   arbitrary = arbitraryJson
 
+-- shows lots of bugs!
+-- need to fix them :-)
+
 arbitraryJson :: Gen JSON
 arbitraryJson = do
-  -- construtor <- choose (0, 6)
-  -- t <- arbitrary
-  -- n <- choose (0, m `div` 2)
-  -- ts <- vectorOf n (arbitrarySizedTree (m `div` 4))
-  -- return (Tree t ts)
   oneof [
       arbitraryNull
     , arbitraryJSNumber
