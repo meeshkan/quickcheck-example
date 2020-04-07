@@ -2,8 +2,8 @@ import Test.QuickCheck
 import Lib
 import Data.Either
 
-prop_ReverseReverseId :: JSON -> Bool
-prop_ReverseReverseId json =
+prop_ParseDumpId :: JSON -> Bool
+prop_ParseDumpId json =
   parseJSON (dumpJSON json) == Right json
 
 instance Arbitrary JSON where
@@ -74,4 +74,4 @@ arbitraryJSObject m = do
 -- JSObject [(String,JSON)]
 
 main :: IO ()
-main = quickCheck prop_ReverseReverseId
+main = quickCheck prop_ParseDumpId
