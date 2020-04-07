@@ -13,8 +13,7 @@ instance Arbitrary JSON where
 -- need to fix them :-)
 
 arbitraryJson :: Gen JSON
-arbitraryJson = do
-  oneof [
+arbitraryJson = oneof [
       arbitraryNull
     , arbitraryJSNumber
     , arbitraryJSFloat
