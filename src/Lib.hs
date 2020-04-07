@@ -28,8 +28,16 @@ dumpJSON JSNull = "null"
 dumpJSON (JSNumber x) = show x
 dumpJSON (JSFloat x) = show x
 dumpJSON (JSString x) = intercalate "" ["\"", x, "\""]
-dumpJSON (JSArray arr) = intercalate " " ["[", intercalate ", " [dumpJSON x | x <- arr], "]"]
-dumpJSON (JSObject obj) = intercalate " " ["{", intercalate ", " [ intercalate " " [dumpJSON $ JSString x, ":", dumpJSON y] | (x, y) <- obj], "}"]
+dumpJSON (JSArray arr) = intercalate " " [
+    "["
+  , intercalate ", " [dumpJSON x | x <- arr]
+  , "]"
+  ]
+dumpJSON (JSObject obj) = intercalate " " [
+    "{"
+  , intercalate ", " [ intercalate " " [dumpJSON $ JSString x, ":", dumpJSON y] | (x, y) <- obj]
+  , "}"
+  ]
 
 ----------------------------------------------------------------
 
