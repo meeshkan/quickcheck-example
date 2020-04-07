@@ -65,13 +65,5 @@ arbitraryJSObject m = do
     seq <- sequence [ arbitraryTuple | _ <- [1..n] ]
     return (JSObject seq)
 
--- JSNull
--- JSBool Bool
--- JSNumber Int
--- JSFloat Double
--- JSString String
--- JSArray [JSON]
--- JSObject [(String,JSON)]
-
 main :: IO ()
 main = quickCheck prop_ParseDumpId
